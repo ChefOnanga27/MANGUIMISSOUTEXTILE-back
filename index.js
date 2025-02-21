@@ -9,6 +9,7 @@ import authRoutes from "./routes/Auth.js";
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static("public"));
 
 app.use("/articles", articleRouter);
 app.use("/commentaires", commentaireRoutes);
@@ -16,4 +17,4 @@ app.use("/auth", authRoutes);
 
 sequelize.sync().then(() => console.log("Base de données synchronisée"));
 
-app.listen(3000, () => console.log("Serveur lancé sur http://localhost:3000"));
+app.listen(5000, () => console.log("Serveur lancé sur http://localhost:5000"));
